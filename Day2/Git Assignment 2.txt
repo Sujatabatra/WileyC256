@@ -1,0 +1,22 @@
+1. create new local repository
+2. add two files in working copy
+3. add files created in step two to local repo
+4. modify file 1 and add third file
+5. add modified file and newly created file to staged area
+6. move both the files from staged area to untracked area
+7. reenter both files in staged area
+8. store in local repo
+9. push master in remote repository
+10. create new branch with name "NewBranch"
+11. Checkout NewBranch
+12. add two more files in New Branch
+13. push NewBranch to Remote Repository
+14. modify first file in New Branch
+15. commit changes in new branch
+16. checkout master branch
+17. add new file in master branch and store in local repo
+18. go to new Branch modify file 2
+19. commit new branch changes
+20. merge New Branch with master
+21. update remote repository
+22. delete New Branch from local and remote repository.
