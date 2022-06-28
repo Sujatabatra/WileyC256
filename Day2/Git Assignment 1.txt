@@ -1,0 +1,8 @@
+1. Create local Repository
+2. create four files 
+3. put three file in stagged area with single command
+4. move one file from stagged back to untracked
+5. move all files to stagged
+6. commit all files
+7. modify two files
+8. commit one file from the two modified file.
