@@ -1,0 +1,5 @@
+Naming Conventions
+
+1. package name must be in lower case
+2. Class name much be in PascalCase 
+3. method,variables and object names in camelCase
