@@ -1,0 +1,12 @@
+1. A source code file can have only one public class.
+2. If the source file contains a public class, the filename must match the
+public class name.
+3. A file can have only one package statement, but multiple imports.
+4. The package statement (if any) must be the first (non-comment) line in a 
+source file.
+5. The import statements (if any) must come after the package and before 
+the class declaration.
+6. If there is no package statement, import statements must be the first (non comment) statements in the source file.
+7. package and import statements apply to all classes in the file.
+8. A file can have more than one nonpublic class.
+9. Files with no public classes have no naming restrictions.
