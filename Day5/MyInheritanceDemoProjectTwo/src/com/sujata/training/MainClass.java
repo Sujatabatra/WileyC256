@@ -12,6 +12,11 @@ public class MainClass {
 		Marks marks=new Marks();
 		marks.inputStudentsDetailsWithMarks(111, "AAAA", 67, 89, 94);
 		marks.displayStudentDetailsWithMarks();
+		
+		System.out.println("=================");
+		Grade grade=new Grade();
+		grade.inputStudentsDetailsWithMarks(222, "BBBB", 90, 80, 97);
+		grade.displayStudentCompleteDetails();
 	}
 
 }
