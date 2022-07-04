@@ -34,6 +34,9 @@ public class MySecondStaticClassDemo {
 		SecondStaticDemo.display();
 		SecondStaticDemo.setY(10);
 		
+		SecondStaticDemo refVar=null;
+		System.out.println("value of y"+refVar.getY());
+		
 		SecondStaticDemo obj1=new SecondStaticDemo();
 		obj1.x=20;
 		
