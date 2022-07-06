@@ -1,16 +1,15 @@
-package com.sujata.objectio;
+package com.sujata.serializabledemos;
 
 import java.io.Serializable;
 
 public class Person implements Serializable {
 
-	
-	private static final long serialVersionUID = 8690758045384365723L;
+	private static final long serialVersionUID = 1L;
 	
 	private int personId;
 	private String personName;
 	private int personAge;
-	
+	transient private String personGender;
 	
 	public Person() {
 		
@@ -28,6 +27,15 @@ public class Person implements Serializable {
 		this.personId = personId;
 		this.personName = personName;
 		this.personAge = personAge;
+	}
+	
+
+	public Person(int personId, String personName, int personAge, String personGender) {
+		super();
+		this.personId = personId;
+		this.personName = personName;
+		this.personAge = personAge;
+		this.personGender = personGender;
 	}
 
 	public int getPersonId() {
@@ -52,6 +60,14 @@ public class Person implements Serializable {
 
 	public void setPersonAge(int personAge) {
 		this.personAge = personAge;
+	}
+
+	public String getPersonGender() {
+		return personGender;
+	}
+
+	public void setPersonGender(String personGender) {
+		this.personGender = personGender;
 	}
 	
 	
