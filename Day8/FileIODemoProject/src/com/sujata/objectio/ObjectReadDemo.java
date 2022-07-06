@@ -12,7 +12,7 @@ public class ObjectReadDemo {
 				ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);){
 			
 			Person person=(Person)objectInputStream.readObject();
-			System.out.println(person.getPersonId()+"   "+person.getPersonName());
+			System.out.println(person.getPersonId()+"   "+person.getPersonName()+"   "+person.getPersonAge());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
