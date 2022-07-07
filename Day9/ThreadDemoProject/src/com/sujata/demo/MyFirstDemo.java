@@ -24,10 +24,20 @@ public class MyFirstDemo {
 		
 		thread1.run();
 		
+		try {
+			thread1.join();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+//		thread1.start();   //will throw IllegalThreadStateException
+		
 		for (int i = 1; i <= 5; i++) {
 			System.out.println(Thread.currentThread().getName()+" parent i : "+i);
 		}
 		System.out.println("Good Bye from parent "+Thread.currentThread().getName());
+		
+		
 	}
 
 }
