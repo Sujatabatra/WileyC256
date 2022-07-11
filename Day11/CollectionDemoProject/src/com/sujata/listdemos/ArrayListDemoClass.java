@@ -1,5 +1,6 @@
 package com.sujata.listdemos;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -8,7 +9,7 @@ import java.util.ListIterator;
 
 public class ArrayListDemoClass {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		/*
 		 * Array List is the Ordered duplicate 
 		 * autogrowable and autoshrinkable collection of objects
@@ -21,7 +22,7 @@ public class ArrayListDemoClass {
 		dataCollection.add(40);
 		dataCollection.add(10);
 		dataCollection.add(20);
-
+		
 		System.out.println("Size of dataCollection : "+dataCollection.size());
 		System.out.println(dataCollection);
 		
