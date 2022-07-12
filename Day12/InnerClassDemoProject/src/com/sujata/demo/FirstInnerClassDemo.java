@@ -1,5 +1,10 @@
 package com.sujata.demo;
 
+class ClassX{
+	public void xyz() {
+		System.out.println("xyz");
+	}
+}
 class OuterClass{
 	private int value1;
 	public int getValue1() {
@@ -12,7 +17,7 @@ class OuterClass{
 		System.out.println("Hi I am message() method from Outer Class");
 	}
 	
-	class InnerClass{
+	class InnerClass extends ClassX{
 	
 		private String name;
 
@@ -27,6 +32,7 @@ class OuterClass{
 			System.out.println("Name : "+name);
 			System.out.println("value1 : "+value1);
 			message();
+			xyz();
 		}
 	}
 	
