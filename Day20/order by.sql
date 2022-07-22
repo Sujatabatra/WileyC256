@@ -35,8 +35,5 @@ order by field(department,
 'Marketing',
 'HR') ;
 
-select employeeId,employeeName,department,designation
-from employee
-order by field(department,
-'IT',
-'Sales') ;
+
+select reverse('Sujata')
