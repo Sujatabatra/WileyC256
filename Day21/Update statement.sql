@@ -15,6 +15,10 @@ update employee
 set designation=(select designation from emp where employeeName="AAAA")
 where employeeId=(select * from (select employeeId from employee where employeeId=104) as X);
 
+-- or
+UPDATE EMPLOYEES A INNER JOIN EMPLOYEES B
+SET A.SALARY = A.SALARY + 5000 WHERE A.MANAGER_ID = B.EMPLOYEE_ID;
+
 select * from emp;
 
 
