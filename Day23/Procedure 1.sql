@@ -39,3 +39,13 @@ END$$
 DELIMITER ;
 
 call secondProcedure();
+
+DELIMITER ;
+
+select * from employee ;
+
+DELIMITER $$
+
+select * from employee $$
+
+DELIMITER ;
