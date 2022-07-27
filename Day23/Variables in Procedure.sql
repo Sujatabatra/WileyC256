@@ -16,3 +16,5 @@ END$$
 DELIMITER ;
 
 call getEmployeeTotalSalary();
+
+call getEmployeeSalaryDetails(102);
