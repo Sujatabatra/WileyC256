@@ -27,8 +27,10 @@ or condition_value : MYSQL error Codes
 
 statement : statement to be performed if condition_value occured
 */
+DECLARE DuplicateValue CONDITION for 1062 ;
 
-declare EXIT handler for 1062
+declare EXIT handler for DuplicateValue
+
 select concat(id," employee id already exist") Output;
 
 insert into employee 
