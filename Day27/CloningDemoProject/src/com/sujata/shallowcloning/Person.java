@@ -1,10 +1,11 @@
-package com.sujata.demo;
+package com.sujata.shallowcloning;
 
 public class Person implements Cloneable {
 
 	private int personId;
 	private String personName;
 	private int personAge;
+	private Address personAddress;
 	
 	public Person() {
 		
@@ -15,6 +16,15 @@ public class Person implements Cloneable {
 		this.personId = personId;
 		this.personName = personName;
 		this.personAge = personAge;
+	}
+
+	
+	public Person(int personId, String personName, int personAge, Address personAddress) {
+		super();
+		this.personId = personId;
+		this.personName = personName;
+		this.personAge = personAge;
+		this.personAddress = personAddress;
 	}
 
 	public int getPersonId() {
@@ -42,10 +52,20 @@ public class Person implements Cloneable {
 	}
 
 	
+	public Address getPersonAddress() {
+		return personAddress;
+	}
+
+	public void setPersonAddress(Address personAddress) {
+		this.personAddress = personAddress;
+	}
+
+	
 	
 	@Override
 	public String toString() {
-		return "Person [personId=" + personId + ", personName=" + personName + ", personAge=" + personAge + "]";
+		return "Person [personId=" + personId + ", personName=" + personName + ", personAge=" + personAge
+				+ ", personAddress=" + personAddress + "]";
 	}
 
 	@Override
