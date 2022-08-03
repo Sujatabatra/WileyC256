@@ -24,14 +24,18 @@ public class MyFirstClass {
 			
 //			2.Query
 			statement=connection.createStatement();
-			statement.addBatch("insert into employee values(120,'Rakesh','Associate','ramesh@suresh.com','HR',45000)");
-			statement.addBatch("insert into employee values(121,'Asha','Sr. Associate','asha@something.com','IT',65000)");
-			statement.addBatch("insert into employee values(122,'Beena','Manager','beena@anymail.com','Sales',145000)");
-			statement.addBatch("insert into employee values(123,'Chand','Associate','chand@somemail.com','IT',55000)");
-			
+			statement.addBatch("insert into employee values(124,'Harish','Associate','harish@mno.com','HR',45000)");
+			statement.addBatch("insert into employee values(125,'Satish','Sr. Associate','satish@something.com','IT',65000)");
+			statement.addBatch("insert into employee values(126,'Manish','Manager','manish@anymail.com','Sales',145000),(128,'Ganesh','Sr. Manager','ganesh@anymail.com','Marketing',245000)");
+			statement.addBatch("insert into employee values(127,'Ashish','Associate','ashish@somemail.com','IT',55000)");
+			statement.addBatch("update employee set salary=salary+100 where department='Sales'");
 //			3.Process Result
 			
 			int rows[]=statement.executeBatch();
+			int count=1;
+			for(int row:rows) {
+				System.out.println("row(s) updated by "+count++ +" statement "+row);
+			}
 			if(rows.length>0)
 				System.out.println("Batch Processed");
 			else
