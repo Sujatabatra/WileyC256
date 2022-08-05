@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="Chitranshu" class="com.sujata.producer.Singer">
+		<property name="song" value="Yun Hi Chala Chal"></property>
+	</bean>
+	
+	<bean id="Krishna" class="com.sujata.producer.Juggler">
+		<constructor-arg name="balls" value="4"></constructor-arg>
+	</bean>
+	
+	<bean id="Vivek" class="com.sujata.producer.Dancer">
+		<property name="style" value="Salsa"></property>
+	</bean>
+	
+	<bean id="guitar" class="com.sujata.producer.Guitar"></bean>
+	<bean id="drum" class="com.sujata.producer.Drum"></bean>
+	<bean id="tabla" class="com.sujata.producer.Tabla"></bean>
+	
+	<bean id="Tejaswini" class="com.sujata.producer.Instrumentalist">
+		<constructor-arg name="instrument" ref="tabla"></constructor-arg>
+	</bean>
+</beans>
