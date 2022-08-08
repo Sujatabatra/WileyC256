@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean id="oracle" class="com.sujata.producer.OracleConnection">
+		<constructor-arg name="url" value="OracleUrl"></constructor-arg>
+		<constructor-arg name="username" value="scott"></constructor-arg>
+		<constructor-arg name="password" value="tiger"></constructor-arg>
+	</bean>
+
+	<bean id="sybase" class="com.sujata.producer.SybaseConnection">
+		<property name="url" value="SyBaseUrl"></property>
+		<property name="username" value="user1"></property>
+		<property name="password" value="password123"></property>
+	</bean>
+	
+	<bean id="dbConnection" class="com.sujata.producer.DbConnection">
+		<property name="connection" ref="sybase"></property>
+	</bean>
+</beans>
