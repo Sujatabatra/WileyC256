@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<form action="./saveEmployee" method="get">
+	Enter Employee ID : <input type="text" name="empId"><br><br>
+	Enter Employee Name : <input type="text" name="empName"><br><br>
+	Select Employee Designation : <select name="empDesig">
+	<option value="Executive">Executive</option>
+	<option value="Sr. Executive">Sr. Executive</option>
+	<option value="Associate">Associate</option>
+	<option value="Sr. Associate">Sr. Associate</option>
+	<option value="Manager">Manager</option>
+	<option value="Sr. Manager">Sr. Manager</option>
+	<option value="Director">Director</option>
+	<option value="Sr. Director">Sr. Director</option>
+	</select>
+	<br><br>
+	Select Employee Department :<input type="radio" name="empDeptt" value="IT">IT
+	<input type="radio" name="empDeptt" value="Sales">Sales
+	<input type="radio" name="empDeptt" value="Marketing">Marketing
+	<input type="radio" name="empDeptt" value="Purchase">Purchase
+	<br><br>
+	Enter Employee Email : <input type="email" name="empEmail"><br><br>
+	Enter Employee Salary : <input type="number" name="empSalary"><br><br>
+	<input type="submit" value="Add Employee">
+</form>
+
+<br><br>
+
+<a href="./">Go to Main Page</a>
+</body>
+</html>
