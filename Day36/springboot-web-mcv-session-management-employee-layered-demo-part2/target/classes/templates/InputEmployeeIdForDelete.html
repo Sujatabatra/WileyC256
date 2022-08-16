@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h2 th:text="'Welcome '+${session.user.userName}+'!'"></h2>
+<hr>
+<form action="#"  method="post" th:object="${command}" th:action="@{./deleteEmployee}">
+	Select Employee ID : <select th:field="*{empId}">
+	<option th:each="id : ${empIds}" th:value="${id}" th:label="${id}"></option>
+	</select><br><br>
+	<input type="submit" value="Delete Employee">
+</form>
+<br><br>
+<a href="./menu">Go To Main Page</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link th:href="@{/styles/main.css}" rel="stylesheet">
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h2 th:text="'Welcome '+${session.user.userName}+'!'"></h2>
+<hr>
+<form action="./searchEmployee" method="post">
+	Enter Employee ID : <input type="text" name="empId"><br><br>
+	<input type="submit" value="Search Employee">
+</form>
+<br><br>
+<a href="./menu">Go To Main Page</a>
+</body>
+</html>
