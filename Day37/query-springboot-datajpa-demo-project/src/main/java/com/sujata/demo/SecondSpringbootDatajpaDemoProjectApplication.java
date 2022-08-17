@@ -23,6 +23,7 @@ public class SecondSpringbootDatajpaDemoProjectApplication implements CommandLin
 //	private CustomerPresentation customerPresentation;
 	@Autowired
 	private CustomerDao customerDao;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SecondSpringbootDatajpaDemoProjectApplication.class, args);
 	}
@@ -37,13 +38,33 @@ public class SecondSpringbootDatajpaDemoProjectApplication implements CommandLin
 //			customerPresentation.performMenu(choice);
 //			
 //		}
+//		
+		System.out.println("Enter Address : ");
+		String add=scanner.next();
 		
-		System.out.println("Enter Name : ");
-		String na=scanner.next();
-		
-		List<Customer> customers=customerDao.findByCustomerName(na);
+		List<Customer> customers=customerDao.getCustomerByAddress(add);
 		System.out.println(customers);
 		
 		
+		System.out.println("Enter Name : ");
+		String na=scanner.next();
+		System.out.println("Enter Email : ");
+		String email=scanner.next();
+		
+		List<String> customerNames=customerDao.getNamesByNameAndMail(na, email);
+		System.out.println(customerNames);
+		
+		
+		System.out.println("Enter customer ID whose wallet balance you want to update : ");
+		int cId=scanner.nextInt();
+		System.out.println("Enter new wallet Balance : ");
+		double bal=scanner.nextDouble();
+		
+		if(customerDao.updateBalance(bal, cId)>0)
+			System.out.println("Updated!");
+		else
+			System.out.println("Not Updated!");
+		
+		System.out.println(customerDao.findById(cId).get());
 	}
 }

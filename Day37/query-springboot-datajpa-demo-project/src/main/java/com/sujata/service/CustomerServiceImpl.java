@@ -30,7 +30,11 @@ public class CustomerServiceImpl implements CustomerService {
 	@Override
 	public boolean addCustomer(Customer customer) {
 		customerDao.save(customer);
-		return true;
+//		int rows=customerDao.insertCustomer(customer.getCustomerId(), customer.getCustomerName(), 
+//				customer.getCustomerAddress(), customer.getCustomerMailId(), customer.getCustomerWalletBalance());
+//		if(rows>0)
+			return true;
+//		return false;
 	}
 
 	@Override
