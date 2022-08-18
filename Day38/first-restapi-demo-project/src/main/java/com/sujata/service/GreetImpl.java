@@ -11,4 +11,10 @@ public class GreetImpl implements Greet {
 
 	}
 
+	@Override
+	public String greetSomeOne(String name) {
+		
+		return "Weclome "+name+" to the world of Rest API!!!";
+	}
+
 }
