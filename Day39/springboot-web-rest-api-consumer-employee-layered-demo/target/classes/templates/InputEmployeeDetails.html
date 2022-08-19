@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h2 th:text="'Welcome '+${session.user.userName}+'!'"></h2>
+<hr>
+<form action="#" method="post" th:action="@{./saveEmployee}" th:object="${emp}">
+
+	Enter Employee ID : <input type="text" th:field="*{employeeId}"><br><br>
+	
+	Enter Employee Name : <input type="text" th:field="*{employeeName}"><br><br>
+	
+	Select Employee Designation : <select th:field="*{employeeDesignation}">
+	<option th:each="desig : ${empDesignations}" th:value="${desig}" th:label="${desig}">
+	<!--  
+	<option value="Executive">Executive</option>
+	<option value="Sr. Executive">Sr. Executive</option>
+	<option value="Associate">Associate</option>
+	<option value="Sr. Associate">Sr. Associate</option>
+	<option value="Manager">Manager</option>
+	<option value="Sr. Manager">Sr. Manager</option>
+	<option value="Director">Director</option>
+	<option value="Sr. Director">Sr. Director</option>
+	-->
+	</select>
+	<br><br>
+	<!--  
+	Select Employee Department :<input type="radio" th:field="*{empDepartment}" value="IT">IT
+	<input type="radio" th:field="*{empDepartment}" value="Sales">Sales
+	<input type="radio" th:field="*{empDepartment}" value="Marketing">Marketing
+	<input type="radio" th:field="*{empDepartment}" value="Purchase">Purchase
+	-->
+	Select Employee Department : <input type="radio" th:field="*{department}" 
+	th:each="deptt : ${empDepartments}" th:value="${deptt}" th:text="${deptt}">
+	<br><br>
+	
+	Enter Employee Email : <input type="email" th:field="*{email}"><br><br>
+	
+	Enter Employee Salary : <input type="number" th:field="*{salary}"><br><br>
+	
+	<input type="submit" value="Add Employee">
+</form>
+
+<br><br>
+
+<a href="./menu">Go to Main Page</a>
+</body>
+</html>

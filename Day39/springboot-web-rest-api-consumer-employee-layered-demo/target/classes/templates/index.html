@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Employee Management System</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h2 th:text="'Welcome '+${session.user.userName}+'!'"></h2>
+<hr>
+<a href="/inputEmployeeDetailsPage">Add Employee</a><br><br>
+<a href="/inputEmpIdPageForDelete">Delete Employee</a><br><br>
+<a href="/inputEmpIdPageForSearch">Search Employee</a><br><br>
+<a href="/showAllEmployees">List All Employees</a><br><br>
+<a href="">Generate Payslip</a><br><br>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>Employee Management System</h1>
+<hr>
+<h2 th:text="'Welcome '+${session.user.userName}+'!'"></h2>
+<hr>
+<h2>Employee Detail</h2>
+<table border="1">
+	<tr>
+		<th>Employee ID</th>
+		<th>Name</th>
+		<th>Designation</th>
+		<th>Department</th>
+		<th>Email</th>
+		<th>Salary</th>
+	</tr>
+	<tr th:each="employee : ${employeeList}">
+		<td th:text="${employee.employeeId}"></td>
+		<td th:text="${employee.employeeName}"></td>
+		<td th:text="${employee.employeeDesignation}"></td>
+		<td th:text="${employee.department}"></td>
+		<td th:text="${employee.email}"></td>
+		<td th:text="${employee.salary}"></td>
+	</tr>
+</table>
+<br><br>
+<a href="./menu">Go To Main Page</a>
+</body>
+</html>
