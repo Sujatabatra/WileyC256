@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sujata.bean.Employee;
+import com.sujata.bean.Employees;
 import com.sujata.persistence.EmployeeDao;
 import com.sujata.service.EmployeeService;
 
@@ -26,8 +27,8 @@ public class EmployeeResource {
 	private EmployeeService employeeService;
 	
 	@GetMapping(path = "/employees",produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Employee> getAllEmployeesResource(){
-		return employeeService.getAllEmployees();
+	public Employees getAllEmployeesResource(){
+		return new Employees(employeeService.getAllEmployees());
 	}
 	
 	
