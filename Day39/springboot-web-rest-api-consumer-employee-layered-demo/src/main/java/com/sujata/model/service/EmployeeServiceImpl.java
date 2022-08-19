@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -68,9 +71,16 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public boolean deleteEmployee(int employeeId) {
-//		if(employeeDao.deleteRecord(employeeId)>0)
-//			return true;
-		return false;
+		HttpHeaders headers = new HttpHeaders();
+		HttpEntity<Employee> entity = new HttpEntity<Employee>(headers);
+		Employee employee = restTemplate
+				.exchange("http://localhost:8082/employees/" + employeeId, HttpMethod.DELETE, entity, Employee.class)
+				.getBody();
+		if (employee.getEmployeeId() == 0 && employee.getEmployeeName() == null
+				&& employee.getEmployeeDesignation() == null && employee.getDepartment() == null
+				&& employee.getEmail() == null && employee.getSalary() == 0.0)
+			return false;
+		return true;
 	}
 
 }
