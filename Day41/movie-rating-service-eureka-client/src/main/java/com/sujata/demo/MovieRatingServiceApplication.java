@@ -15,6 +15,7 @@ public class MovieRatingServiceApplication {
 		SpringApplication.run(MovieRatingServiceApplication.class, args);
 	}
 	
+	//@LoadBalanced : Create Ribbon backed RestTemplate
 	@Bean
 	@LoadBalanced
 	public RestTemplate getRestTemplate() {
