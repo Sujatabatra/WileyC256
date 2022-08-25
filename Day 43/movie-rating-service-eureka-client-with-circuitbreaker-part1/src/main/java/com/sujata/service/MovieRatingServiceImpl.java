@@ -1,0 +1,43 @@
+package com.sujata.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+import com.sujata.bean.Movie;
+import com.sujata.bean.MovieDetails;
+import com.sujata.bean.Rating;
+import com.sujata.bean.RatingList;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+
+@Service
+public class MovieRatingServiceImpl implements MovieRatingService {
+
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	@Override
+	@CircuitBreaker(name = "movieDetails",fallbackMethod ="getMovieDetailsFallBack" )
+	public List<MovieDetails> getMovieDetails(String userId) {
+		List<MovieDetails> movieDetailsList=new ArrayList<MovieDetails>();
+		
+		RatingList ratingList=restTemplate.getForObject("http://rating-service/rating/"+userId, RatingList.class);
+		
+		for(Rating rating:ratingList.getRatings()) {
+			Movie movie=restTemplate.getForObject("http://movie-service/movies/"+rating.getMovieId(), Movie.class);
+			movieDetailsList.add(new MovieDetails(userId, movie.getMovieName(), rating.getRating()));
+		}
+		
+		return movieDetailsList;
+	}
+	
+	public List<MovieDetails> getMovieDetailsFallBack(Exception e){
+		List<MovieDetails> movies=new ArrayList<MovieDetails>();
+		movies.add(new MovieDetails(null, null, 0));
+		return movies;
+	}
+}
