@@ -1,0 +1,36 @@
+configuration server will read configuration from git
+application.properties : common configuration file for all config server clients
+microserviceName.properties : microservice specific configuration file.
+
+d:\wiley131cb\code\cofigrepo
+two file : application.properties
+share-service.properties
+
+git init
+git status
+git add .
+git status
+git commit -m "message"
+git status
+
+create a spring boot project with config server dependency
+annotate main class with : @EnableConfigServer
+application.properties : server.port=8888
+spring.cloud.config.server.git.uri= <path of git Repository>
+======================================================
+http://localhost:8888/application/default
+http://localhost:8888/microservicename/default
+======================================================
+Config Server Client
+create a spring boot project with two dependencies
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-config</artifactId>
+</dependency>
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-bootstrap</artifactId>
+</dependency>
+
+application.properties
+spring.cloud.config.uri=http://localhost:8888
