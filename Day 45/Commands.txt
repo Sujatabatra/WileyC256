@@ -1,0 +1,8 @@
+List of command
+1. directory related : mkdir, rmdir, cd
+2. file related : cat, cp, rm
+3. filter : wc
+4. other commands: ls, env, echo,pwd,uname,man,script,date,cal,bc,who,whoami,tput clear, tty, stty,tree
+
+
+
