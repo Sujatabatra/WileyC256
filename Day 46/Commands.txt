@@ -1,0 +1,8 @@
+process command :ps
+file permission : chmod
+vi editor
+wildcard characters, command subsitution, single quotes
+Hard Links Vs Soft Links
+pipe
+other commands : tee
+filters : head, tail, cut, paste, sort
