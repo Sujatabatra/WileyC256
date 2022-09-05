@@ -5,12 +5,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.DisplayNameGeneration;
+import org.junit.jupiter.api.DisplayNameGenerator;
 import org.junit.jupiter.api.Test;
 
 import com.sujata.demo.MyCalculator;
 import com.sujata.demo.NegativeNumberException;
 
 @DisplayName("Testing MyCalculator Class")
+@DisplayNameGeneration(DisplayNameGenerator.ReplaceUnderscores.class)
 class TestMyDivide {
 
 	private MyCalculator myCalculator;
@@ -64,8 +67,9 @@ class TestMyDivide {
 		assertThrows(NegativeNumberException.class, ()->myCalculator.divide());
 	}
 	
+//	@DisplayName("R001 T006")
 	@Test
-	void R001_T006() throws NegativeNumberException{
+	void dividing_10_by_0() throws NegativeNumberException{
 		myCalculator.setNumber1(10);
 		myCalculator.setNumber2(0);
 		assertThrows(ArithmeticException.class, ()->myCalculator.divide());
