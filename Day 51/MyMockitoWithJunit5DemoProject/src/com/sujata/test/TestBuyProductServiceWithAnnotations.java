@@ -12,23 +12,40 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
 import org.mockito.Mockito;
-
+import org.mockito.MockitoAnnotations;
+import org.mockito.junit.MockitoJUnitRunner;
 
 import com.sujata.bean.Stock;
 import com.sujata.repository.ProductDao;
 import com.sujata.service.BuyProductService;
 
-class TestBuyProductService {
+@RunWith(MockitoJUnitRunner.class)
+class TestBuyProductServiceWithAnnotations {
 
+	@InjectMocks
 	private BuyProductService buyProductService;
+	
+	@Mock
 	private ProductDao productDao;
+	
+	private AutoCloseable closeable;
 
 	@BeforeEach
 	void setUp() throws Exception {
 		buyProductService=new BuyProductService();
 		
-		productDao=Mockito.mock(ProductDao.class);
+		/*
+		 *tells Mockito to scab this test class instance for
+		 *any fields annotated with @Mock annotation and 
+		 *initialize those fields as mocks. 
+		 */
+		closeable=MockitoAnnotations.openMocks(this);
+		
+//		productDao=Mockito.mock(ProductDao.class);
 		
 		List<Stock> stocks=new ArrayList<Stock>();
 		stocks.add(new Stock(101, "Pencil", 10));
@@ -36,13 +53,13 @@ class TestBuyProductService {
 		stocks.add(new Stock(103, "Eraser", 2));
 		
 		buyProductService.setStocks(stocks);
-		buyProductService.setProductDao(productDao);
+//		buyProductService.setProductDao(productDao);
 		
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
-		
+		closeable.close();
 	}
 
 	@Test
